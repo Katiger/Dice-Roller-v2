@@ -14,10 +14,13 @@ while yesroll == 'yes':
     #finds the average of the rolls
     diceSum = math.fsum(rolls)
     print ('The sum of your rolls is ',diceSum)
+    #finds the index of the rolls list
     diceAverage = len(rolls)
+    #prints the average of the rolls which is the sum of the rolls divided by the number of rolls.
     print('The average of your rolls is ', int(diceSum)/int(diceAverage))
     #lists what the rolls are
     print ('You rolled ', rolls)
+    #writes the rolls into a text doc
     f =  open("diceroll.txt","a")
     f.write(str(rolls))
     f.close()
