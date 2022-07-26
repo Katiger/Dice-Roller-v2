@@ -1,0 +1,4 @@
+
+ You have rolled these dice [1, 3, 4, 5, 3, 6, 5, 5, 4, 2]
+ The sum of your all your rolls is 38
+ Your average roll was 3
