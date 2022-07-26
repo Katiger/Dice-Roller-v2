@@ -1,8 +1,8 @@
 import random
+from prettytable import PrettyTable
 
 #Creating overall rolls array
 overallRolls = []
-
 #creating roll again variable
 again = 'yes'
 
@@ -21,6 +21,14 @@ def rollsum(array):
 def rollaverage(array):
   average = rollsum(array)//len(array)
   return average
+
+def rolloccur(dice,array):
+  occur = 0
+  dicenum = dice
+  for i in array:  
+    if i == dicenum:
+      occur +=1
+  return occur
   
 #Rolling the dice
 while again == 'yes':
@@ -46,12 +54,8 @@ while again == 'yes':
   print ('The average of ALL your rolls is ',(rollaverage(overallRolls)))
   print('\nYou have rolled a total of ',str(len(overallRolls)),' times.')
   f =  open("diceroll.txt","a")
-  f.write('\n You rolled these dice ')
+  f.write('\n\n')
   f.write(str(rolls))
-  f.write('\n The sum of your rolls was ')
-  f.write(str(rollsum(rolls)))
-  f.write('\n Your average roll was ')
-  f.write(str(rollaverage(rolls)))
   f.close() 
   
   #asking if they would like to roll again
@@ -65,3 +69,27 @@ f.write(str(rollsum(overallRolls)))
 f.write('\n Your average roll was ')
 f.write(str(rollaverage(overallRolls)))
 f.close()   
+
+
+#how many times did I roll each dice
+dice = [1,2,3,4,5,6]
+print('\n')
+dicerolled=['Overall Times rolled']
+for i in dice:
+  dicerolled.append(rolloccur((i),overallRolls))
+  #print('You rolled a',(i) ,str(rolloccur((i),overallRolls)), 'times.')
+
+print('\n')
+dicetable = PrettyTable(['Dice Numbers','One','Two', 'Three','Four','Five','Six'])
+dicetable.add_row((dicerolled))
+print(dicetable)
+
+#Which dice did I roll the most
+highamount = 0
+for i in dicerolled:
+  if i == 'Overall Times rolled':
+      continue
+  if highamount < int(i):
+    highamount = i
+print ('\n You rolled ',(dicerolled.index(highamount)),'the most amount of times at',(highamount),'times.')
+       
