@@ -1,5 +1,4 @@
 import random
-import math
 
 #Creating overall rolls array
 overallRolls = []
@@ -40,12 +39,12 @@ while again == 'yes':
     arrayadd(overallRolls)
 
 
-  print('You rolled these dice ',(rolls))
-  print('The sum of your last roll is ',(rollsum(rolls)))
+  print('\nYou rolled these dice ',(rolls))
+  print('\nThe sum of your last roll is ',(rollsum(rolls)))
   print ('The Average of your last roll is ',(rollaverage(rolls)))
-  print('The sum of ALL your rolls is',(rollsum(overallRolls)))
+  print('\nThe sum of ALL your rolls is',(rollsum(overallRolls)))
   print ('The average of ALL your rolls is ',(rollaverage(overallRolls)))
-  print('You have rolled a total of ',str(len(overallRolls)),' times.')
+  print('\nYou have rolled a total of ',str(len(overallRolls)),' times.')
   f =  open("diceroll.txt","a")
   f.write('\n You rolled these dice ')
   f.write(str(rolls))
